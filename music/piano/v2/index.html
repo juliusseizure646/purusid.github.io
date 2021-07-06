@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing:unset;
+        }
+
+        
+
+        body {
+            background: #0F2027;
+            background: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);
+            background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027);
+
+        }
+
+        .piano{
+            height: 70vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .key {
+            display: flex;
+            justify-content: center;
+            align-items:flex-end;
+            font-size: 2em;
+            font-weight: bold;
+            padding-bottom: 20px;
+        }
+
+        .white {
+            width: 4.54545455%;
+            min-width: 4vw;
+            height: 70%;
+            background-color: white;
+            border: 1px solid #ccc;
+            color: #000;
+        }
+
+        .black {
+            width: 3.5%;
+            height: 45%;
+            margin-left: -2%;
+            margin-right: -2%;
+            z-index: 2;
+            background-color: black;
+            color: #fff;
+        }
+
+        .white.active {
+            background-color: #ccc;
+        }
+
+        .black.active {
+            background-color: darkgray;
+        }
+    </style>
+    <title>Piano</title>
+</head>
+    <div class="piano">
+        <div class="key white" data-note="C3">C</div>
+
+        <div class="key black" data-note="Cs3">C#</div>
+
+        <div class="key white" data-note="D3">D</div>
+
+        <div class="key black" data-note="Ds3">D#</div>
+
+        <div class="key white" data-note="E3">E</div>
+        <div class="key white" data-note="F3">F</div>
+
+        <div class="key black" data-note="Fs3">F#</div>
+
+        <div class="key white" data-note="G3">G</div>
+
+        <div class="key black" data-note="Gs3">G#</div>
+
+        <div class="key white" data-note="A4">A</div>
+
+        <div class="key black" data-note="As4">A#</div>
+
+        <div class="key white" data-note="B3">B</div>
+        <div class="key white" data-note="C4">C</div>
+
+        <div class="key black" data-note="Cs4">C#</div>
+
+        <div class="key white" data-note="D4">D</div>
+
+        <div class="key black" data-note="Ds4">D#</div>
+        
+        <div class="key white" data-note="E4">E</div>
+        <div class="key white" data-note="F4">F</div>
+
+        <div class="key black" data-note="Fs4">F#</div>
+
+        <div class="key white" data-note="G4">G</div>
+
+        <div class="key black" data-note="Gs4">G#</div>
+
+        <div class="key white" data-note="A5">A</div>
+
+        <div class="key black" data-note="As5">A#</div>
+
+        <div class="key white" data-note="B5">B</div>
+        <div class="key white" data-note="C5">C</div>
+
+        <div class="key black" data-note="Cs5">C#</div>
+
+        <div class="key white" data-note="D5">D</div>
+
+        <div class="key black" data-note="Ds5">D#</div>
+
+        <div class="key white" data-note="E5">E</div>
+        <div class="key white" data-note="F5">F</div>
+
+        <div class="key black" data-note="Fs5">F#</div>
+
+        <div class="key white" data-note="G5">G</div>
+
+        <div class="key black" data-note="Gs5">G#</div>
+        
+        <div class="key white" data-note="A6">A</div>
+
+        <div class="key black" data-note="As6">A#</div>
+
+        <div class="key white" data-note="B6">B</div>
+        <div class="key white" data-note="C6">C</div>
+    </div>
+
+    <audio src="notes/c3.mp3" id="C3"></audio>
+    <audio src="notes/c-3.mp3" id="Cs3"></audio>
+    <audio src="notes/d3.mp3" id="D3"></audio>
+    <audio src="notes/d-3.mp3" id="Ds3"></audio>
+    <audio src="notes/e3.mp3" id="E3"></audio>
+    <audio src="notes/f3.mp3" id="F3"></audio>
+    <audio src="notes/f-3.mp3" id="Fs3"></audio>
+    <audio src="notes/g3.mp3" id="G3"></audio>
+    <audio src="notes/g-3.mp3" id="Gs3"></audio>
+    <audio src="notes/a4.mp3" id="A3"></audio>
+    <audio src="notes/a-4.mp3" id="As3"></audio>
+    <audio src="notes/b4.mp3" id="B3"></audio>
+    <audio src="notes/c4.mp3" id="C4"></audio>
+    <audio src="notes/c-4.mp3" id="Cs4"></audio>
+    <audio src="notes/d4.mp3" id="D4"></audio>
+    <audio src="notes/d-4.mp3" id="Ds4"></audio>
+    <audio src="notes/e4.mp3" id="E4"></audio>
+    <audio src="notes/f4.mp3" id="F4"></audio>
+    <audio src="notes/f-4.mp3" id="Fs4"></audio>
+    <audio src="notes/g4.mp3" id="G4"></audio>
+    <audio src="notes/g-4.mp3" id="Gs4"></audio>
+    <audio src="notes/a4.mp3" id="A4"></audio>
+    <audio src="notes/a-4.mp3" id="As4"></audio>
+    <audio src="notes/b4.mp3" id="B4"></audio>
+    <audio src="notes/c5.mp3" id="C5"></audio>
+    <audio src="notes/c-5.mp3" id="Cs5"></audio>
+    <audio src="notes/d5.mp3" id="D5"></audio>
+    <audio src="notes/d-5.mp3" id="Ds5"></audio>
+    <audio src="notes/e5.mp3" id="E5"></audio>
+    <audio src="notes/f5.mp3" id="F5"></audio>
+    <audio src="notes/f-5.mp3" id="Fs5"></audio>
+    <audio src="notes/g5.mp3" id="G5"></audio>
+    <audio src="notes/g-5.mp3" id="Gs5"></audio>
+    <audio src="notes/a5.mp3" id="A5"></audio>
+    <audio src="notes/a-5.mp3" id="As5"></audio>
+    <audio src="notes/b5.mp3" id="B5"></audio>
+    <audio src="notes/a6.mp3" id="A6"></audio>
+    <audio src="notes/a-6.mp3" id="As6"></audio>
+    <audio src="notes/b6.mp3" id="B6"></audio>
+    <audio src="notes/c6.mp3" id="C6"></audio>
+    
+
+    <script>
+        const keys = document.querySelectorAll('.key');
+        const regulars = document.querySelectorAll('.key.white');
+        const sharps = document.querySelectorAll('.key.black');
+        const blacks = ['2', '3',      '5', '6', '7',      '9', '0',      '=', 'a', 's',      'f', 'g',      'j', 'k', 'l']
+        const whites = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
+        
+        keys.forEach(key => {
+            key.addEventListener('click', () => playNote(key))
+        })
+
+        document.addEventListener('keydown', e => {
+            if (e.repeat) return
+            const key = e.key
+            const whiteKeyIndex = whites.indexOf(key)
+            const blackKeyIndex = blacks.indexOf(key)
+
+            if (whiteKeyIndex > -1) playNote(regulars[whiteKeyIndex])
+            if (blackKeyIndex > -1) playNote(sharps[blackKeyIndex])
+        })
+
+        let playNote = (key) => {
+            const noteSound = document.getElementById(key.dataset.note)
+            noteSound.currentTime = 0
+            noteSound.play()
+            key.classList.add('active')
+            noteSound.addEventListener('ended', () => {
+                key.classList.remove('active')
+            })
+        }
+    </script>
+
+    <h1>Keys Order:Q,2,W,3,E,R,5,T,6,Y,7,U,I,9,O,0,P,[,=,],A,Z,S,X,C,F,V,G,B,N,J,M,K,{COMMA},L,{DOT},/</h1>
+</html>

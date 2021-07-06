@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>HOME-FrCodeCo</title>
+	<style>
+		* {
+			z-index: 0;
+		}
+
+		div.scrollmenu {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 6vh;
+			background-color: #333;
+			overflow: auto;
+			white-space: nowrap;
+			z-index: 1;
+		}
+
+		div.scrollmenu button {
+			display: inline-block;
+			color: black;
+			text-align: center;
+			padding: 14px;
+			text-decoration: none;
+			height: 6vh;
+			font-size: 2.57vh;
+		}
+
+		div.scrollmenu button:hover {
+			background-color: #777;
+		}
+
+		.imgnew {
+			height: 6vh;
+			width: 6vh;
+		}
+
+		.desktop {
+			height: 94vh;
+			width: 100%;
+		}
+
+		.addmenu {
+			visibility: hidden;
+			overflow: scroll;
+			height: 90vh;
+			position: fixed;
+			width: 30%;
+			bottom: 6vh;
+			z-index: 100000000000000000;
+			left: 0;
+			background-color: azure;
+			color: black;
+		}
+
+		.addmenu:hover {
+			visibility: visible;
+		}
+
+		.icodscr {
+			height: 16vh;
+		}
+
+		.iconame,
+		.icodscr {
+			display: block;
+			position: absolute;
+			width: 20vh;
+			text-align: center;
+		}
+
+		.iconame {
+			margin-top: 14vh;
+			padding: 0px;
+			background-color: #2196F3;
+			color: #fff;
+			height: 4vh;
+			font-size: 2.7vh;
+			padding-top: 1vh;
+			padding-bottom: 1vh;
+		}
+
+		.icon {
+			background-color: #f1f1f1;
+			text-align: center;
+			height: 20vh;
+			width: 20vh;
+			margin-left: 0;
+			margin-bottom: 3vh;
+			float: left;
+			margin-right: 1vh;
+		}
+
+		hr.hr {
+			color: #ffffff;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.app {
+			visibility: hidden;
+			height: 94vh;
+			width: 100%;
+			z-index: 2;
+			position: fixed;
+			top: 0;
+			background-color: white;
+			left: 0;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		.dialog {
+			height: 30vh;
+			width: 40vh;
+			position: absolute;
+			top: 30vh;
+			left: 30%;
+			z-index: 1;
+			visibility: hidden;
+		}
+
+		.tempapp {
+			visibility: visible;
+			height: 94vh;
+			width: 100%;
+			z-index: 2;
+			position: fixed;
+			top: 0;
+			background-color: white;
+			left: 0;
+		}
+	</style>
+	<script>
+		var apps;
+		var visible = "visible"
+		function hideall() {
+			apps = document.getElementsByClassName('app');
+			for (var i = 0; i < apps.length; i++) {
+				apps[i].style.visibility = 'hidden';
+			}
+			apps = document.getElementsByClassName('tempapp');
+			for (var i = 0; i < apps.length; i++) {
+				apps[i].style.visibility = 'hidden';
+			}
+		}
+		function music() { hideall(); document.getElementById('music').style.visibility = 'visible'; }
+		function fun() { hideall(); document.getElementById('fun').style.visibility = 'visible'; }
+		function ourapps() { hideall(); document.getElementById('ourapps').style.visibility = 'visible'; }
+		function tools() { hideall(); document.getElementById('tools').style.visibility = 'visible'; }
+	</script>
+</head>
+
+<body>
+	<div class="scrollmenu" id="bottombar">
+		<button onclick="hideall();">BACK TO HOME SCREEN</button>
+		<button onclick="hideall();document.getElementById('ourapps').style.visibility = 'visible';">APPSTORE</button>
+		<button onclick="hideall();document.getElementById('fun').style.visibility = 'visible';">FUN</button>
+		<button onclick="hideall();document.getElementById('music').style.visibility = 'visible';">MUSIC</button>
+		<button onclick="hideall();document.getElementById('tools').style.visibility = 'visible';">TOOLS</button>
+	</div>
+	<div class="desktop" id="desktop">
+		<a onclick="ourapps();">
+			<div class="icon">
+				<div class="icodscr">
+					<p>APP</p>
+					<p>STORE</p>
+				</div>
+				<div class="iconame">APP STORE</div>
+			</div>
+		</a>
+		<a onclick="fun();">
+			<div class="icon">
+				<div class="icodscr">
+					<p>FUN</p>
+					<p>AND</p>
+					<p>GAMES</p>
+				</div>
+				<div class="iconame">FUN</div>
+			</div>
+		</a>
+		<a onclick="music();">
+			<div class="icon">
+				<div class="icodscr">
+					<p>MUSICAL</p>
+					<p>INSTRUMENTS</p>
+				</div>
+				<div class="iconame">MUSIC</div>
+			</div>
+		</a>
+		<a onclick="tools();">
+			<div class="icon">
+				<div class="icodscr">
+					<p>TOOLS</p>
+					<p>AND</p>
+					<p>STUFF</p>
+				</div>
+				<div class="iconame">TOOLS</div>
+			</div>
+		</a>
+		<a href="home/old/" target="_blank">
+			<div class="icon">
+				<div class="icodscr">
+					<p>OLD</p>
+					<p>HOMEPAGE</p>
+				</div>
+				<div class="iconame">OLD HOMEPAGE</div>
+			</div>
+		</a>
+		<div class="embedapps" id="embedapps">
+			<embed src="fun/index.html" class="app" id="fun">
+			<embed src="tools/index.html" class="app" id="tools">
+			<embed src="apps/index.html" class="app" id="ourapps">
+			<embed src="music/index.html" class="app" id="music">
+		</div>
+	</div>
+</body>
+
+</html>
