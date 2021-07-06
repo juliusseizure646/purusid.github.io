@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<script>
+    function calcage(){
+    var din = document.getElementById('dobin').value;
+    var dob = new Date(din);
+    var month_diff = Date.now() - dob.getTime();
+    var age_dt = new Date(month_diff); 
+    var year = age_dt.getUTCFullYear();
+    var age = Math.abs(year - 1970);
+    document.getElementById('agedisp').innerHTML = "AGE FOR DOB " + din + " IS: " + age + " years";
+    }
+</script>
+</head>
+<body>
+<h1>Age Calculator</h1>
+<input type="date" name="begin" placeholder="dd-mm-yyyy" value="enter DOB" id="dobin">
+<button onclick="calcage()">Tell Age</button>
+<h2><div id="agedisp" style="border-width:20px; border-color:#000000">(age will be displayed here)</div></h2>
+</body>
+</html>

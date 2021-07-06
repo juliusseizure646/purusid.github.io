@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>FrDesks</title>
+	<style>
+		* {
+			z-index: 0;
+		}
+
+		div.scrollmenu {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 6vh;
+			background-color: #333;
+			overflow: auto;
+			white-space: nowrap;
+			z-index: 1;
+		}
+
+		div.scrollmenu button {
+			display: inline-block;
+			color: black;
+			text-align: center;
+			padding: 14px;
+			text-decoration: none;
+			height: 6vh;
+			font-size: 2.57vh;
+		}
+
+		div.scrollmenu button:hover {
+			background-color: #777;
+		}
+
+		.imgnew {
+			height: 6vh;
+			width: 6vh;
+		}
+
+		.desktop {
+			height: 94vh;
+			width: 100%;
+		}
+
+		.addmenu {
+			visibility: hidden;
+			overflow: scroll;
+			height: 90vh;
+			position: fixed;
+			width: 30%;
+			bottom: 6vh;
+			z-index: 100000000000000000;
+			left: 0;
+			background-color: azure;
+			color: black;
+		}
+
+		.addmenu:hover {
+			visibility: visible;
+		}
+
+		.icodscr {
+			height: 16vh;
+		}
+
+		.iconame,
+		.icodscr {
+			display: block;
+			position: absolute;
+			width: 20vh;
+			text-align: center;
+		}
+
+		.iconame {
+			margin-top: 14vh;
+			padding: 0px;
+			background-color: #2196F3;
+			color: #fff;
+			height: 4vh;
+			font-size: 2.7vh;
+			padding-top: 1vh;
+			padding-bottom: 1vh;
+		}
+
+		.icon {
+			background-color: #f1f1f1;
+			text-align: center;
+			height: 20vh;
+			width: 20vh;
+			margin-left: 0;
+			margin-bottom: 3vh;
+			float: left;
+			margin-right: 1vh;
+		}
+
+		hr.hr {
+			color: #ffffff;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.app {
+			visibility: hidden;
+			height: 94vh;
+			width: 100%;
+			z-index: 2;
+			position: fixed;
+			top: 0;
+			background-color: white;
+			left: 0;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		.dialog {
+			height: 30vh;
+			width: 40vh;
+			position: absolute;
+			top: 30vh;
+			left: 30%;
+			z-index: 1;
+			visibility: hidden;
+		}
+
+		.tempapp {
+			visibility: visible;
+			height: 94vh;
+			width: 100%;
+			z-index: 2;
+			position: fixed;
+			top: 0;
+			background-color: white;
+			left: 0;
+		}
+	</style>
+	<script>
+		var apps;
+		var visible = "visible"
+		function hideall() {
+			apps = document.getElementsByClassName('app');
+			for (var i = 0; i < apps.length; i++) {
+				apps[i].style.visibility = 'hidden';
+			}
+			apps = document.getElementsByClassName('tempapp');
+			for (var i = 0; i < apps.length; i++) {
+				apps[i].style.visibility = 'hidden';
+			}
+		}
+		function todo() {
+			hideall();
+			document.getElementById('todo').style.visibility = "visible";
+		}
+		function calc() {
+			hideall();
+			document.getElementById('calc').style.visibility = "visible";
+		}
+		function agecalc() {
+			hideall();
+			document.getElementById('agecalc').style.visibility = "visible";
+		}
+		function addico() {
+			hideall();
+			document.getElementById('addico').style.visibility = "visible";
+		}
+		function makeico() {
+			hideall();
+
+			var desktop = document.getElementById('desktop');
+
+			var newiconame = document.getElementById('newiconame').value;
+			var newicourl = document.getElementById('newicourl').value;
+			var newicodscr = document.getElementById('newicodscr').value;
+
+			var madeico = document.createElement('a');
+			madeico.href = newicourl;
+			madeico.target = "_blank";
+
+			var madeicodiv = document.createElement('div');
+			madeicodiv.className = "icon";
+
+			var madeicodscr = document.createElement('div');
+			madeicodscr.className = "icodscr";
+			madeicodscr.innerHTML = newicodscr;
+
+			var madeiconame = document.createElement('div');
+			madeiconame.className = "iconame";
+			madeiconame.innerHTML = newiconame;
+
+			madeicodiv.appendChild(madeicodscr);
+			madeicodiv.appendChild(madeiconame);
+			madeico.appendChild(madeicodiv);
+			desktop.appendChild(madeico);
+
+			document.getElementById('addico').style.visibility = "hidden";
+		}
+		function newapp() {
+			var newappurl = document.getElementById('newappurl').value;
+
+			var bottombar = document.getElementById('bottombar');
+
+			var newappid = document.getElementById('newappid').value;
+
+			var apparea = document.getElementById('embedapps');
+
+			var makeapp = document.createElement('embed');
+			makeapp.className = "tempapp";
+			makeapp.src = newappurl;
+			makeapp.id = newappid;
+			apparea.appendChild(makeapp);
+			var appclicke = "hideall();document.getElementById('" + newappid + "').style.visibility = visible;";
+			var btmbarbtn = document.createElement('button');
+			btmbarbtn.setAttribute("onClick", appclicke);
+			btmbarbtn.innerHTML = newappid;
+			bottombar.appendChild(btmbarbtn);
+			document.getElementById('addapp').style.visibility = "hidden";
+		}
+	</script>
+</head>
+
+<body>
+	<div class="desktop" id="desktop">
+		<a href="cube/" target="_blank">
+			<div class="icon">
+				<div class="icodscr">
+					<p>CUBE</p>
+					<p>GAME</p>
+				</div>
+				<div class="iconame">CUBE GAME</div>
+			</div>
+		</a>
+		<a href="space/" target="_blank">
+			<div class="icon">
+				<div class="icodscr">
+					<p>SPACE</p>
+					<p>DRIVE</p>
+				</div>
+				<div class="iconame">SPACE DRIVE</div>
+			</div>
+		</a>
+		<a href="race/" target="_blank">
+			<div class="icon">
+				<div class="icodscr">
+					<p>CAR</p>
+					<p>RACE</p>
+				</div>
+				<div class="iconame">CAR RACE</div>
+			</div>
+		</a>
+		<a href="race2/" target="_blank">
+			<div class="icon">
+				<div class="icodscr">
+					<p>CAR</p>
+					<p>RACE</p>
+					<p>V2</p>
+				</div>
+				<div class="iconame">CAR RACE v2</div>
+			</div>
+		</a>
+		<a href="numgame/">
+			<div class="icon">
+				<div class="icodscr">
+					<p>NUMBER</p>
+					<p>GUESSING</p>
+					<p>GAME</p>
+				</div>
+				<div class="iconame">NUMBER GUESS</div>
+			</div>
+		</a>
+		<a href="riddles/">
+			<div class="icon">
+				<div class="icodscr">
+					<p>RIDDLES</p>
+					<p>FOR</p>
+					<p>YOU</p>
+				</div>
+				<div class="iconame">RIDDLES PACK</div>
+			</div>
+		</a>
+	</div>
+</body>
+
+</html>
